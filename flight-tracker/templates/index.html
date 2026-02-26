@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Flight Tracker</title>
+
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app-container">
+        <!-- Map Container -->
+        <div id="map"></div>
+
+        <!-- Glassmorphism Sidebar for Flight Details -->
+        <aside id="flight-sidebar" class="hidden">
+            <div class="sidebar-header">
+                <h2>Flight Details</h2>
+                <button id="close-sidebar" aria-label="Close sidebar">&times;</button>
+            </div>
+            <div class="flight-info-content" id="flight-info">
+                <div class="empty-state">Select a flight on the map to view details.</div>
+            </div>
+        </aside>
+
+        <!-- Loading / Status Indicator -->
+        <div id="status-indicator" class="glass-panel">
+            <span class="status-dot"></span>
+            <span id="status-text">Connecting...</span>
+        </div>
+
+        <!-- Price Dashboard Overlay -->
+        <div id="price-dashboard" class="glass-panel">
+            <div class="price-header">
+                <h3>DFW ➔ SFO</h3>
+                <span class="date-badge">Mar 15 - Mar 22</span>
+            </div>
+            <div class="price-content" id="price-data">
+                <div class="price-loader">Checking prices...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Custom App Logic -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
