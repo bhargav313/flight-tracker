@@ -31,7 +31,8 @@ def fetch_cheapest_flight(departure_id="DFW", arrival_id="SFO", outbound_date="2
             "airline_logo": "",
             "departure": departure_id,
             "arrival": arrival_id,
-            "target_price": 300 
+            "target_price": 300,
+            "booking_link": "https://www.google.com/flights"
         }, 200
 
     params = {
@@ -72,6 +73,8 @@ def fetch_cheapest_flight(departure_id="DFW", arrival_id="SFO", outbound_date="2
             airline = flight_segments[0].get("airline", "Unknown Airline")
         except IndexError:
             airline = "Unknown Airline"
+            
+        booking_link = data.get("search_metadata", {}).get("google_flights_url", "https://www.google.com/flights")
 
         return {
             "price": price,
@@ -79,7 +82,8 @@ def fetch_cheapest_flight(departure_id="DFW", arrival_id="SFO", outbound_date="2
             "airline_logo": airline_logo,
             "departure": departure_id,
             "arrival": arrival_id,
-            "target_price": 300 # Passed down so frontend knows what threshold to colorize
+            "target_price": 300, # Passed down so frontend knows what threshold to colorize
+            "booking_link": booking_link
         }, 200
 
     except requests.exceptions.HTTPError as e:

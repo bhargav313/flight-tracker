@@ -85,6 +85,7 @@ async function fetchFlightPrices() {
         const airline = data.airline;
         const logo = data.airline_logo;
         const targetPrice = data.target_price;
+        const bookingLink = data.booking_link || "https://www.google.com/flights";
 
         const isGoodPrice = price <= targetPrice;
         const priceClass = isGoodPrice ? "price-good" : "price-bad";
@@ -99,6 +100,7 @@ async function fetchFlightPrices() {
                 <span>${airline}</span>
             </div>
             <div class="price-target-msg ${priceClass}">${message} (Target: $${targetPrice})</div>
+            <a href="${bookingLink}" target="_blank" class="book-btn">Book Now</a>
         `;
 
     } catch (error) {

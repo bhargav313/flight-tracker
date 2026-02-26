@@ -333,3 +333,28 @@ body {
     color: var(--text-muted);
     margin-top: 4px;
 }
+
+/* Book Now Button */
+.book-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.book-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.book-btn:active {
+    transform: translateY(1px);
+}
