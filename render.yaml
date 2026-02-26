@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flight-tracker
+    env: python
+    buildCommand: "pip install -r requirements.txt && pip install gunicorn"
+    startCommand: "gunicorn server:app"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: SERPAPI_KEY
+        sync: false
